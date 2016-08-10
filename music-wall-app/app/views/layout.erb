@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link href="/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+  <link href="/star_rating_plugin/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+  <!--
+    application.css is where you put your styles
+  -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+  <script src="/star_rating_plugin/js/star-rating.js" type="text/javascript"></script>
+  <script src="/javascript/application.js"></script>
+  <link rel="stylesheet" href="/stylesheets/output.css">
+
+  <title></title>
+</head>
+<body>
+  <nav class="navbar navbar-default style-navbar-custom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <% if session["user"] %>
+          <p class="navbar-text">Logged in as: <%= session["user"].username %></p>
+          <li><a href="/accounts/logout">LOGOUT</a>
+        <% else %>
+          <li><a href="/accounts/login">LOGIN</a></li>
+          <li><a href="/accounts/signup">SIGNUP</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <%= yield %>
+</body>
+</html>
+
